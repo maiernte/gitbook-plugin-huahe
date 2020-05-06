@@ -6,6 +6,20 @@
 
 
 
+本人同时开发了一个独立的易学案例管理平台，当前支持安卓、ios 以及在线版：
+
+[华鹤易学在线版](https://maiernte.gitee.io/huahe/)
+
+[华鹤易学平台文档](https://maiernte.gitee.io/huahedocument/)
+
+
+
+有疑问以及合作请联系邮箱 goldentianya@foxmail.com
+
+[函数API](https://maiernte.gitee.io/huahedocument/chapter6/libapi.html)： https://maiernte.gitee.io/huahedocument/chapter6/libapi.html
+
+
+
 ### 安装
 
 在Gitbook项目的配置文件 `book.json` 中加入：
