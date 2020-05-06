@@ -8,16 +8,17 @@ module.exports = {
     css: [
       "katex.min.css"
     ]
-  }
+  },
+  blocks: {
+    math: {
+        shortcuts: {
+            parsers: ["markdown", "asciidoc", "restructuredtext"],
+            start: "$$",
+            end: "$$"
+        },
+        process: function(blk) {
+            return `\\(${blk.body}\\)`;
+        }
+    }
+  } 
 }
-
-
-/* "pluginsConfig": {
-  "huahe": { 
-      "js": ["./huahelibs/katex.min.js", 
-             "./huahelibs/auto-render.min.js", 
-             "./gitbook/gitbook-plugin-huahe/bundle.js"
-             ], 
-      "css": ["./huahelibs/katex.min.css"] 
-  }
-}, */
