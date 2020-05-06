@@ -14,6 +14,10 @@
 
 
 
+演示网站： [《增删卜易》Gitbook](https://maiernte.gitee.io/zengshan/) （正在制作中。。。）
+
+
+
 有疑问以及合作请联系邮箱 goldentianya@foxmail.com
 
 [函数API](https://maiernte.gitee.io/huahedocument/chapter6/libapi.html)： https://maiernte.gitee.io/huahedocument/chapter6/libapi.html
@@ -22,13 +26,17 @@
 
 ### 安装
 
-在Gitbook项目的配置文件 `book.json` 中加入：
+在Gitbook项目的配置文件 `book.json` 中加入插件名称 '**huahe**'：
 
 ```json
 ...
 "plugins": [ ..., "huahe"],
 ...
 ```
+
+然后在终端输入安装命令：
+
+`gitbook install`
 
 
 
