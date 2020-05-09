@@ -6,6 +6,10 @@
   "engines": {
     "gitbook": "3.*"
   },
+  "dependencies": {
+    "huaheyixue": "^1.0.0",
+    "katex": "^0.11.1"
+  },
   "gitbook": {
     "properties": {
       "css": {
