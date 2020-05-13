@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-huahe",
   "description": "使用MathJax渲染易学盘符。",
   "main": "index.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "engines": {
     "gitbook": "3.*"
   },

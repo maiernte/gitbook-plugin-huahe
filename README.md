@@ -42,6 +42,23 @@
 
 ### 配置
 
+此插件支持两种渲染方式：
+
+- 运行时渲染
+- 编译时渲染
+
+
+
+编译时渲染即在编译HTML文件的时候已经把易学盘符转换成 Dom Element 。好处是浏览页面的时候会更流畅。而且当需要把Gitbook转换成其它如 pdf 或者 epub 格式的电子书时，也必须用这种方式。
+
+
+
+而运行时渲染是指当用户浏览网站的时候，才将易学公式转换成 Dom Element。浏览设备的运算能力不够快的时候，会出现卡顿的情形。好处是它会在手机浏览时，自动采用简短名称的显示方式。
+
+
+
+###### 运行时渲染
+
 在Gitbook项目的配置文件 `book.json` 中加入：
 
 ```json
@@ -57,4 +74,18 @@
 ```
 
 
+
+###### 编译时渲染
+
+需要进入目录 `node_modules/gitbook-plugin-huahe` 并打开 `index.js` 文件，搜索变量并设置为`false`。
+
+ ```javascript
+ const runtimeRender = false
+ ```
+
+需要改变字体大小
+
+```javascript
+globalSetting['size'] = SizeDef[3]
+```
 

@@ -1,7 +1,8 @@
 const katex = require('katex')
 const { globalSetting, DictYiXue} = require('huaheyixue')
 
-globalSetting['字体大小'] = 3
+const SizeDef = ["tiny", "tiny", "scriptsize", "footnotesize", "small", "normalsize", "large", "LARGE", "huge", "Huge"]
+globalSetting['size'] = SizeDef[3]
 
 function huaheformat(tex) {
 
@@ -35,6 +36,7 @@ function yixue(math){
 module.exports = {
   book: {
     assets: "./assets",
+    js: ["katex.min.js", "contrib/auto-render.min.js", "main.js", "bundle.js", ],
     css: [
       "katex.min.css"
     ]
@@ -47,17 +49,22 @@ module.exports = {
             end: "$"
         },
         process: function(blk) {
-            const tex = yixue(blk.body)
+            const runtimeRender = true;
+            if (runtimeRender) {
+              return `$${blk.body}$`;
+            } else {
+              const tex = yixue(blk.body)
             
-            try {
-              let html  = katex.renderToString(tex, {
-                displayMode: false
-              });
-              return html;
-            }catch(err) {
-              console.error(err)
-              console.log(tex)
-              return `\\(${blk.body}\\)`;
+              try {
+                let html  = katex.renderToString(tex, {
+                  displayMode: false
+                });
+                return html;
+              }catch(err) {
+                console.error(err)
+                console.log(tex)
+                return `\\(${blk.body}\\)`;
+              } 
             }
         }
     }
