@@ -1,5 +1,5 @@
 const katex = require('katex')
-const { globalSetting, DictYiXue} = require('huaheyixue')
+const { globalSetting, DictYiXue, renderYixueHTML } = require('huaheyixue')
 
 const SizeDef = ["tiny", "tiny", "scriptsize", "footnotesize", "small", "normalsize", "large", "LARGE", "huge", "Huge"]
 globalSetting['size'] = SizeDef[3]
@@ -49,22 +49,19 @@ module.exports = {
             end: "$"
         },
         process: function(blk) {
-            const runtimeRender = true;
+            const runtimeRender = false;
             if (runtimeRender) {
               return `$${blk.body}$`;
             } else {
-              const tex = yixue(blk.body)
-            
               try {
-                let html  = katex.renderToString(tex, {
+                const html = renderYixueHTML(blk.body, {
                   displayMode: false
-                });
-                return html;
+                })
+                return html
               }catch(err) {
                 console.error(err)
-                console.log(tex)
                 return `\\(${blk.body}\\)`;
-              } 
+              }
             }
         }
     }
